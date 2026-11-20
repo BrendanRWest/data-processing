@@ -1,5 +1,8 @@
 package com.pluralsight.loops;
 
+import java.util.List;
+import java.util.Scanner;
+
 public class Person {
 
     private String firstName;
@@ -38,10 +41,9 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
+        return "Person | " +
+                "firstName = '" + firstName + '\'' +
+                " | lastName = '" + lastName + '\'' +
+                " | age = " + age;
     }
 }
