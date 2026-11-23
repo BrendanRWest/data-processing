@@ -1,11 +1,9 @@
 package com.pluralsight;
 
-import com.pluralsight.loops.Person;
+import com.pluralsight.streams.Person;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Program {
