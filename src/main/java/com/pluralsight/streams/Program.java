@@ -1,6 +1,7 @@
 package com.pluralsight.streams;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -109,24 +110,34 @@ public class Program {
     // Keeps the highest age seen so far. maxAge starts at the smallest
     // int there is, so the first person always replaces it
     private static int findOldestAge(List<Person> people) {
-        int maxAge = Integer.MIN_VALUE;
+        /*int maxAge = Integer.MIN_VALUE;
         for (Person person : people) {
             if (person.getAge() > maxAge) {
                 maxAge = person.getAge();
             }
-        }
-        return maxAge;
+        }*/
+        List<Integer> ages = people
+                .stream().map(person -> person.getAge())
+                .sorted(Comparator.reverseOrder())
+                .toList();
+
+        return ages.get(0);
     }
 
     // The same idea the other way round: minAge starts at the biggest int
     // there is, and every lower age replaces it
     private static int findYoungestAge(List<Person> people) {
-        int minAge = Integer.MAX_VALUE;
+        /*int minAge = Integer.MAX_VALUE;
         for (Person person : people) {
             if (person.getAge() < minAge) {
                 minAge = person.getAge();
             }
-        }
-        return minAge;
+        }*/
+        List<Integer> ages = people
+                .stream().map(person -> person.getAge())
+                .sorted()
+                .toList();
+
+        return ages.get(0);
     }
 }
