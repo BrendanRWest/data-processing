@@ -93,10 +93,16 @@ public class Program {
     // totalAge is a double on purpose: dividing an int by an int would
     // throw the decimals away (305 / 10 would give 30, not 30.5)
     private static double calculateAverageAge(List<Person> people) {
-        double totalAge = 0;
+        /*double totalAge = 0;
         for (Person person : people) {
             totalAge += person.getAge();
         }
+        return totalAge / people.size();*/
+
+        int totalAge = people
+                .stream().map(person -> person.getAge())
+                .reduce(0, (runningTotal, age) -> runningTotal + age);
+
         return totalAge / people.size();
     }
 
